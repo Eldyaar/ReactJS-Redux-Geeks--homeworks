@@ -1,0 +1,14 @@
+.not-found {
+
+   &__wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      h1 {
+         color: red;
+         font-size: 48px;
+         font-weight: bold;
+      }
+   }
+}

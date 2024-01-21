@@ -1,0 +1,55 @@
+.posts {
+   padding: 40px 0;
+
+   &-wrap {
+      height: 500px;
+      overflow: auto;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+
+      &::-webkit-scrollbar {
+         width: 5px;
+      }
+      
+      &::-webkit-scrollbar-thumb {
+         background-color: blueviolet;
+         border-radius: 5px;
+      }
+
+      &::-webkit-scrollbar-track {
+         background-color: #eee;
+      }
+      
+      &-post {
+         width: 240px;
+         height: 250px;
+         border-radius: 10px;
+         border: 1px solid darkgrey;
+         padding: 10px;
+         overflow: hidden;
+
+         &__title {
+            color: white;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 18px;
+         }
+
+         &__desc {
+            color: darkgrey;
+         }
+         
+         &__author {
+            text-align: center;
+            font-size: 20px;
+            color: green;
+            font-weight: bold;
+            margin-bottom: 10px;
+         }
+      }
+   }
+}
+
+

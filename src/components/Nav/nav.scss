@@ -1,0 +1,64 @@
+.nav {
+   padding: 20px 0;
+
+   &-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &__logo {
+
+         &_link {
+            display: block;
+            width: 110px;
+            color: red;
+            font-size: 24px;
+            line-height: 18px;
+            text-decoration: none;
+         }
+
+         span {
+            margin-left: 40px;
+            color: blueviolet;
+         }
+      }
+      &__links {
+
+         ul {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+
+            li {
+               font-size: 20px;
+               list-style: none;
+
+               .link {
+                  text-decoration: none;
+                  color: white;
+
+                  &:hover {
+                     color: blueviolet;
+                  }
+
+                  &.active {
+                     color: blueviolet;
+                  }
+               }
+            }
+         }
+      }
+      &__btn {
+         width: 100px;
+         height: 30px;
+         background: blueviolet;
+         border-radius: 5px;
+         color: white;
+
+         &:hover {
+            background: rgba(138, 43, 226, 0.85)
+         }
+      }
+   }
+}
