@@ -28,7 +28,7 @@
          ul {
             display: flex;
             align-items: center;
-            gap: 40px;
+            gap: 30px;
 
             li {
                font-size: 20px;
@@ -49,6 +49,16 @@
             }
          }
       }
+
+      &__theme-btn {
+         border-radius: 50%;
+         background: none;
+         border: 1px solid blueviolet;
+         padding: 10px;
+         cursor: pointer;
+         font-weight: bold;
+      }
+
       &__btn {
          width: 100px;
          height: 30px;
