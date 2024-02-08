@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './posts.scss'
+import axios from 'axios'
 
 const Posts = () => {
    const [data, setData] = useState([])
@@ -7,9 +8,8 @@ const Posts = () => {
    useEffect(() => {
       const getPostsData = async () => {
          try {
-            const response = await fetch('https://dummyjson.com/posts')
-            const postsData = await response.json()
-            setData(postsData.posts)
+            const response = await axios.get('https://dummyjson.com/posts')
+            setData(response.data.posts)
          } catch (e) {
             console.error(`error: ${e}`)
          }
@@ -29,12 +29,12 @@ const Posts = () => {
    )
 }
 
-const Post = (postData) => {
+const Post = ({ postData }) => {
    return (
       <div className='posts-wrap-post'>
-         <div className='posts-wrap-post__title'>{postData.postData.title}</div>
-         <div className='posts-wrap-post__author'>Author {postData.postData.id}</div>
-         <div className='posts-wrap-post__desc'>{postData.postData.body}</div>
+         <div className='posts-wrap-post__title'>{postData.title}</div>
+         <div className='posts-wrap-post__author'>Author {postData.id}</div>
+         <div className='posts-wrap-post__desc'>{postData.body}</div>
       </div>
    )
 }

@@ -1,16 +1,26 @@
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+
 import './createPost.scss'
+
 
 const CreatePost = () => {
    const { register, handleSubmit, reset } = useForm({})
+   const navigate = useNavigate()
 
-   // Пока-что на консоль
-   const onSubmit = (data) => {
-      console.log(data)
-
+   const onSubmit = async (data) => {
+      try {
+         const response = await axios.post('https://dummyjson.com/posts/add', data)
+         navigate('/posts')
+         
+      } catch (e) {
+         console.error(`error: ${e}`)
+      }
+      
       reset()
    }
-
+   
    return (
       <div className="create-post">
          <div className="container">
@@ -29,16 +39,16 @@ const CreatePost = () => {
                      className='create-post-wrap__form_desc' 
                   />
                   <input 
-                     {...register('author')} 
-                     placeholder='Автор' 
-                     type='text' 
+                     {...register('userId')} 
+                     placeholder='User id' 
+                     type='number' 
                      className='create-post-wrap__form_author' 
                   />
                   <button 
                      type='submit' 
                      className='create-post-wrap__form_btn'
                   >
-                     Отправить
+                     Создать
                   </button>
                </form>
             </div>
