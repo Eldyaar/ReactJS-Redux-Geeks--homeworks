@@ -1,18 +1,7 @@
+import products from '../data/products.json'
+
 const defaultState = {
-   products: [
-      {
-         name: 'Молоко',
-         price: 100,
-         create_of_date: '25-01-1024',
-         origin: 'Кыргызстан'
-      },
-      {
-         name: 'Хлеб',
-         price: 40,
-         create_of_date: '30-01-1024',
-         origin: 'Кыргызстан'
-      }
-   ]
+   products: products
 }
 
 export const productReducer = (state = defaultState, action) => {
@@ -23,3 +12,5 @@ export const productReducer = (state = defaultState, action) => {
          return state
    }
 }
+
+export const addSomeProduct = payload => ({ type: 'ADD_PRODUCT', payload})

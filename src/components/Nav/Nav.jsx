@@ -1,15 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux'
 
 import { NavLink } from 'react-router-dom'
+import { FaShoppingBasket } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
+
 import './nav.scss'
 
 const Nav = () => {
    const dispatch = useDispatch()
    const themeState = useSelector(state => state.theme.darkTheme)
+   const basketProduct = useSelector(state => state.basket.products)
 
-   const switchTheme = () => {
-      dispatch({ type: 'SWITCH_THEME' })
-   }
+   const switchTheme = () => dispatch({ type: 'SWITCH_THEME' })
 
    const switchBgStyle = () => {
       if (themeState) {
@@ -24,28 +26,35 @@ const Nav = () => {
          <div className='container'>
             <div className='nav-wrap'>
                <div className='nav-wrap__logo'>
-                  <NavLink className='nav-wrap__logo_link' to='/'>
-                     React <span>Posts</span>
+                  <NavLink to='/' className='nav-wrap__logo_link'>
+                     React <span>Products</span>
                   </NavLink>
                </div>
                <nav className='nav-wrap__links'>
                   <ul>
-                     <li><NavLink className='link' to='/'>Главная</NavLink></li>
-                     <li><NavLink className='link' to='/posts'>Посты</NavLink></li>
-                     <li><NavLink className='link' to='/createposts'>Новый пост</NavLink></li>
-                     <li><NavLink className='link' to='/hw4'>Homework 4 (New product)</NavLink></li>
+                     <li><NavLink className='link' to='/add'>New product</NavLink></li>
                      <li><NavLink className='link' to='/products'>Products</NavLink></li>
+                     <li>
+                        <button 
+                           onClick={() => {
+                              switchTheme()
+                              switchBgStyle()
+                           }}
+                           className='nav-wrap__theme-btn'>
+                           {themeState ? 'Яркий' : 'Темный'}
+                        </button>
+                     </li>
+                     <li>
+                        <NavLink to='basket' className='link'>
+                           <FaShoppingBasket className='basket' />
+                           <span>{basketProduct.length}</span>
+                        </NavLink>
+                     </li>
                   </ul>
                </nav>
-               <button 
-                  onClick={() => {
-                     switchTheme()
-                     switchBgStyle()
-                  }}
-                  className='nav-wrap__theme-btn'>
-                  {themeState ? 'Яркий' : 'Темный'}
+               <button className='nav-wrap__btn'>
+                  <FaUser className='profile' />
                </button>
-               <button className='nav-wrap__btn'>Войти</button>
             </div>
          </div>
       </header>

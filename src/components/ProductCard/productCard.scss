@@ -1,0 +1,57 @@
+.card {
+   color: white;
+   width: 235px;
+   height: 300px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+
+   &-top {
+      padding: 20px;
+      height: 70%;
+
+      &__info {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+
+         &_promo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #00ff00;
+         }
+
+         &_like {
+            cursor: pointer;
+
+            .heart {
+               width: 25px;
+               height: 25px;
+
+               :hover {
+                  color: red;
+               }
+            }
+         }
+      }
+   }
+   
+   &-bottom {
+      height: 30%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &__info {
+
+         &_name {}
+         &_price {
+            color: #00ff00;
+         }
+      }
+
+      &__btn {
+         cursor: pointer;
+      }
+   }
+}

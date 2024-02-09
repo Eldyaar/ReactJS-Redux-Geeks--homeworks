@@ -46,6 +46,17 @@
                      color: blueviolet;
                   }
                }
+
+               .basket {
+                  width: 25px;
+                  height: 25px;
+                  color: white;
+                  cursor: pointer;
+
+                  &:hover {
+                     color: blueviolet;
+                  }
+               }
             }
          }
       }
@@ -60,14 +71,20 @@
       }
 
       &__btn {
-         width: 100px;
          height: 30px;
-         background: blueviolet;
+         background: none;
+         border: none;
          border-radius: 5px;
          color: white;
 
-         &:hover {
-            background: rgba(138, 43, 226, 0.85)
+         .profile {
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+
+            &:hover {
+               color: blueviolet;
+            }
          }
       }
    }

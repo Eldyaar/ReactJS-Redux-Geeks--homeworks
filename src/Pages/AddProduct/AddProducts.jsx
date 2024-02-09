@@ -1,10 +1,11 @@
 import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
 
-import './hw4.scss'
+import { addSomeProduct } from '../../Store/productReducer'
+import './addProd.scss'
 
 
-const Homework4 = () => {
+const AddProduct = () => {
    const { register, handleSubmit, reset } = useForm({})
    const dispatch = useDispatch()
 
@@ -14,12 +15,7 @@ const Homework4 = () => {
       reset()
    }
 
-   const addProduct = (data) => {
-      dispatch({
-         type: 'ADD_PRODUCT',
-         payload: data
-      })
-   }
+   const addProduct = data => dispatch(addSomeProduct(data))
 
    return (
       <div className='homework4'>
@@ -59,4 +55,4 @@ const Homework4 = () => {
    )  
 }
 
-export default Homework4
+export default AddProduct
