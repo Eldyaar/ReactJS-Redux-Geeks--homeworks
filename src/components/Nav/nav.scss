@@ -30,6 +30,22 @@
             align-items: center;
             gap: 30px;
 
+            .basket-link {
+               display: flex;
+               align-items: center;
+               gap: 10px;
+               color: #fff;
+               padding: 5px 10px;
+               background: #424242;
+               border-radius: 10px;
+
+               div {
+                  padding-right: 10px;
+                  border-right: 1px solid grey;
+                  color: #00ff00;
+               }
+            }
+
             li {
                font-size: 20px;
                list-style: none;

@@ -52,6 +52,20 @@
 
       &__btn {
          cursor: pointer;
+         background: rgba(255, 53, 3, .3);
+         color: #ff3503;
+         border: none;
+         padding: 5px 10px;
+         border-radius: 10px;
+         font-weight: bold;
+
+         span {
+            margin-left: 10px;
+            color: #8A2BE2;
+            padding: 5px;
+            border-radius: 50%;
+            text-align: center;
+         }
       }
    }
 }

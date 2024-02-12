@@ -1,25 +1,14 @@
-import { useDispatch, useSelector } from 'react-redux'
-
+import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+
 import { FaShoppingBasket } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 
 import './nav.scss'
 
 const Nav = () => {
-   const dispatch = useDispatch()
-   const themeState = useSelector(state => state.theme.darkTheme)
-   const basketProduct = useSelector(state => state.basket.products)
-
-   const switchTheme = () => dispatch({ type: 'SWITCH_THEME' })
-
-   const switchBgStyle = () => {
-      if (themeState) {
-         document.body.style.backgroundColor = "#fff"
-      } else {
-         document.body.style.backgroundColor = "#373737"
-      }
-   }
+   const { basketState, totalPrice } = useSelector(state => state.basket)
+   const totalCount = basketState.reduce((sum, product) => sum + product.count, 0)
 
    return (
       <header className='nav'>
@@ -35,20 +24,13 @@ const Nav = () => {
                      <li><NavLink className='link' to='/add'>New product</NavLink></li>
                      <li><NavLink className='link' to='/products'>Products</NavLink></li>
                      <li>
-                        <button 
-                           onClick={() => {
-                              switchTheme()
-                              switchBgStyle()
-                           }}
-                           className='nav-wrap__theme-btn'>
-                           {themeState ? 'Яркий' : 'Темный'}
-                        </button>
-                     </li>
-                     <li>
-                        <NavLink to='basket' className='link'>
-                           <FaShoppingBasket className='basket' />
-                           <span>{basketProduct.length}</span>
-                        </NavLink>
+                        <div className='basket-link'>
+                           <div>{totalPrice} $</div>
+                           <NavLink to='basket' className='link'>
+                              <FaShoppingBasket className='basket' />
+                              <span>{totalCount}</span>
+                           </NavLink>
+                        </div>
                      </li>
                   </ul>
                </nav>

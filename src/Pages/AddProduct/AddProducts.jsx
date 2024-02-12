@@ -1,7 +1,8 @@
 import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
 
-import { addSomeProduct } from '../../Store/productReducer'
+import { productActions } from '../../Store/productSlice'
+
 import './addProd.scss'
 
 
@@ -10,12 +11,12 @@ const AddProduct = () => {
    const dispatch = useDispatch()
 
    const onSubmit = async (data) => {
-      addProduct(data)
+      addSomeProduct(data)
 
       reset()
    }
 
-   const addProduct = data => dispatch(addSomeProduct(data))
+   const addSomeProduct = data => dispatch(productActions.addProduct(data))
 
    return (
       <div className='homework4'>

@@ -1,24 +1,30 @@
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import ProductCard from '../../components/ProductCard/ProductCard'
-
-import { addProductBasket } from '../../Store/basketReducer'
 
 import './basket.scss'
 
 
 const Basket = () => {
-   const basketProduct = useSelector(state => state.basket.products)
-   const dispatch = useDispatch()
-
-   const addToBasket = (index) => {
-      dispatch(addProductBasket(basketProduct[index]))
-   }
+   const basketProduct = useSelector(state => state.basket.basketState)
+   const totalCount = basketProduct.reduce((sum, product) => sum + product.count, 0)
 
    return (
       <div className='basket'>
          <div className='container'>
-            <h2 style={{marginBottom: '30px'}}>Корзина: <span>{basketProduct.length}</span></h2>
+            <h2 style={{
+               marginBottom: '30px',
+               padding: '8px 15px',
+               background: 'rgba(138, 43, 226, 0.1)',
+               color: '#8A2BE2',
+               width: '200px',
+               borderRadius: '10px'
+            }}>
+               Корзина 
+               <span style={{ marginLeft: '50px', color: '#00ff00' }}>
+                  {totalCount}
+               </span>
+            </h2>
             <div 
                style={{
                   display: 'flex',
@@ -28,10 +34,9 @@ const Basket = () => {
             >
                {basketProduct.map((product, index) => 
                   <ProductCard 
-                     key={product.id}
+                     key={index}
                      index={index}
                      product={product}
-                     addToBasket={addToBasket}
                   />
                )}
             </div>
